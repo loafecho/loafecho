@@ -1,0 +1,5 @@
+{
+  // Default markdownlint rules, with lines wrapped at 100 characters.
+  "default": true,
+  "MD013": { "line_length": 100 }
+}

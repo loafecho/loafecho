@@ -23,3 +23,17 @@ Customer ops leader who builds AI tools that people can trust. Founder of
 - [agent-sandbox](https://github.com/loafecho/agent-sandbox):
   least-privilege microVM sandboxes for AI agents, plus a Rust tool server
   that holds risky actions until a person approves them.
+
+## How I build
+
+- **Checks that must be able to fail.** A test only counts if removing the
+  thing it protects turns it red. glia-agent switches off each of its guards
+  in turn and requires the suite to fail; the camera repo's evidence checker
+  recomputes each verdict from the raw test lines instead of trusting the
+  summary.
+- **Approval before action.** In glia-agent and agent-sandbox the agent
+  proposes or requests, a person approves, and only then does anything change.
+  The rules for what an agent may never touch live in code, not in a prompt.
+- **Honest limits.** Every README has a Limits section that says what was not
+  tested and where the tool falls short, such as geometry that can send a file
+  to review but cannot reject it, or patches tested on one device.
